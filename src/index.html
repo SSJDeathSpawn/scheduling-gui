@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tauri App</title>
+  <script src="tailwind.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="/main.js" defer></script>
+</head>
+
+<body>
+  <div class="m-10" id="container">
+    <div class="mt-3">
+      <p class="text-3xl">Scheduling Algorithms</p>
+    </div>
+    <div class="mt-3 text-slate-700">
+      <p class="text-lg">Name: Adikesavan Dhayalan</p>
+      <p class="text-lg">Reg No: 22BCE3316</p>
+    </div>
+    <hr class="border-t-1 border-slate-400" />
+    <div class="mt-5" id="main">
+      <div class="relative inline-flex">
+        <svg class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 412 232">
+          <path
+            d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z"
+            fill="#648299" fill-rule="nonzero" />
+        </svg>
+        <select class="border border-grey-300 rounded-lg text-grey text-xl h-10 pl-5 pr-10 appearance-none" name="algo"
+          id="algo">
+          <option disabled selected>Select an algorithm</option>
+          <option value="fcfs">First Come First Serve</option>
+          <option value="sjf">Shortest Job First</option>
+          <option value="rr">Round Robin</option>
+          <option value="priority">Priority</option>
+        </select>
+      </div>
+      <div class="mt-4" id="content"></div>
+      <div class="mt-4" id="answer"></div>
+    </div>
+  </div>
+  <template id="process-table">
+    <form id="process-form">
+      <table class="border border-collapse border-solid border-black border-2">
+        <tr>
+          <th class="border-2 border-black p-2 text-lg">Process</th>
+          <th class="border-2 border-black p-2 text-lg">Burst Time</th>
+          <th class="border-2 border-black p-2 text-lg">Arrival Time</th>
+        </tr>
+        <tr id="addmore">
+          <td colspan="100%">
+            <button type="button" class="w-full hover:bg-black hover:text-white transition duration-300">
+              +
+            </button>
+          </td>
+        </tr>
+
+        <!-- <tr> -->
+        <!--   <caption class="caption-bottom"> -->
+        <!--   </caption> -->
+        <!-- </tr> -->
+      </table>
+      <button type="submit"
+        class="border-slate-700 border-solid border-2 hover:bg-black hover:text-white transition duration-300 rounded-xl p-2 mt-7 active:bg-slate-700">
+        Get Result
+      </button>
+    </form>
+  </template>
+  <template id="priorityinput">
+    <th class="border-2 border-black p-2 text-lg">Priority</th>
+  </template>
+  <template id="processrow">
+    <tr>
+      <td class="border-2 border-black p-2 text-lg">
+        <input type="text" maxlength="3" class="w-20 bg-transparent border-none focus:outline-none" id="p-1" />
+      </td>
+      <td class="border-2 border-black p-2 text-lg">
+        <input type="number" maxlength="3" class="w-20 bg-transparent border-none focus:outline-none" id="bt-1" />
+      </td>
+      <td class="border-2 border-black p-2 text-lg">
+        <input type="number" maxlength="3" class="w-20 bg-transparent border-none focus:outline-none" id="at-1" />
+      </td>
+    </tr>
+  </template>
+  <template id="prioritycell">
+    <td class="border-2 border-black p-2 text-lg">
+      <input type="text" maxlength="3" class="w-20 bg-transparent border-none focus:outline-none" id="prior-1" />
+    </td>
+  </template>
+  <template id="quantuminput">
+    <label for="quantum" class="font-bold">Quantum: </label><input type="text" maxlength="3"
+      class="w-20 bg-transparent focus:outline-none mb-2" id="quantum" />
+  </template>
+  <template id="gantt-chart">
+    <table>
+      <tr id="gantt-process"
+        class="text-center" colspan="100%">
+      </tr>
+      <tr id="time-process"
+        class="-translate-x-6 text-center">
+      </tr>
+    </table>
+  </template>
+  <template id="time-table">
+    <table class="border border-solid border-black border-collapse">
+        <tr>
+          <th class="p-1 border-2 border-solid border-black">Process</th>
+          <th class="p-1 border-2 border-solid border-black">Waiting Time</th>
+          <th class="p-1 border-2 border-solid border-black">Turnaround Time</th>
+          <th class="p-1 border-2 border-solid border-black">Completion Time</th>
+        </tr>
+    </table>
+  </template>
+  <template id="time-row"></template>
+</body>
+
+</html>
